@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
     actuatorClient->setTeamColor(ourColor);
     replacerClient->setTeamColor(ourColor);
 
-
     while(1) {
         // Start timer
         timer.start();
