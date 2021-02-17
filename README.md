@@ -19,5 +19,12 @@ This example contains the reception of messages from the automatic Referee and t
 Create an folder named `build`, open it and run the command `qmake ..`  
 So, after this, run the command `make` and if everything goes ok, the binary will be at the folder `bin` (at the main folder).  
 
+```shell
+mkdir build
+cd build
+qmake ..
+make
+```
+
 ## Important notes
  * Note that this implementation is just a basic model. Teams must make adjustments that address the real need for their strategies.
