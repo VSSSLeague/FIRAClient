@@ -17,7 +17,11 @@ void ActuatorClient::disconnectFromNetwork() {
     delete _clientSocket;
 }
 
-void ActuatorClient::sendCommand(bool isYellow, quint8 robotId, float wheelLeft, float wheelRight) {
+void ActuatorClient::setTeamColor(VSSRef::Color teamColor) {
+    _teamColor = teamColor;
+}
+
+void ActuatorClient::sendCommand(quint8 robotId, float wheelLeft, float wheelRight) {
     // Check if is connected and call run one time
     if(!_isConnected) {
         run();
@@ -28,7 +32,7 @@ void ActuatorClient::sendCommand(bool isYellow, quint8 robotId, float wheelLeft,
     fira_message::sim_to_ref::Command *command = packet.mutable_cmd()->add_robot_commands();
 
     // Filling command with data
-    command->set_yellowteam(isYellow);
+    command->set_yellowteam((_teamColor == VSSRef::Color::YELLOW) ? true : false);
     command->set_id(robotId);
     command->set_wheel_left(wheelLeft);
     command->set_wheel_right(wheelRight);

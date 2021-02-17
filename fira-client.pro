@@ -29,12 +29,18 @@ system(echo "Compiling protobuf files" && cd include/proto && protoc --cpp_out=.
 SOURCES += \
         clients/actuator/actuatorclient.cpp \
         clients/client.cpp \
+        clients/referee/refereeclient.cpp \
+        clients/replacer/replacerclient.cpp \
         clients/vision/visionclient.cpp \
         include/command.pb.cc \
         include/common.pb.cc \
         include/packet.pb.cc \
         include/replacement.pb.cc \
-        main.cpp
+        include/vssref_command.pb.cc \
+        include/vssref_common.pb.cc \
+        include/vssref_placement.pb.cc \
+        main.cpp \
+        utils/timer/timer.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -44,8 +50,14 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     clients/actuator/actuatorclient.h \
     clients/client.h \
+    clients/referee/refereeclient.h \
+    clients/replacer/replacerclient.h \
     clients/vision/visionclient.h \
     include/command.pb.h \
     include/common.pb.h \
     include/packet.pb.h \
-    include/replacement.pb.h
+    include/replacement.pb.h \
+    include/vssref_command.pb.h \
+    include/vssref_common.pb.h \
+    include/vssref_placement.pb.h \
+    utils/timer/timer.h

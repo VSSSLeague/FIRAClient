@@ -8,6 +8,8 @@ class VisionClient : public Client
 {
 public:
     using Client::Client;
+
+    // Internal getter
     fira_message::sim_to_ref::Environment getLastEnvironment();
 
 private:
