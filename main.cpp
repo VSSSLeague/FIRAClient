@@ -38,6 +38,42 @@ int main(int argc, char *argv[]) {
         visionClient->run();
         refereeClient->run();
 
+        // Debugging vision
+        fira_message::sim_to_ref::Environment lastEnv = visionClient->getLastEnvironment();
+        if(lastEnv.has_frame()) {
+            // Taking last frame
+            fira_message::Frame lastFrame = lastEnv.frame();
+
+            // Debugging ball
+            std::cout << "\n===== BALL =====\n";
+            QString ballDebugStr = QString("Ball x: %1 y: %2")
+                                .arg(lastFrame.ball().x())
+                                .arg(lastFrame.ball().y());
+            std::cout << ballDebugStr.toStdString() + '\n';
+
+            // Debugging blue robots
+            std::cout << "\n===== BLUE TEAM =====\n";
+            for(int i = 0; i < lastFrame.robots_blue_size(); i++) {
+                QString robotDebugStr = QString("Robot %1 -> x: %2 y: %3 ori: %4")
+                        .arg(lastFrame.robots_blue(i).robot_id())
+                        .arg(lastFrame.robots_blue(i).x())
+                        .arg(lastFrame.robots_blue(i).y())
+                        .arg(lastFrame.robots_blue(i).orientation());
+                std::cout << robotDebugStr.toStdString() + '\n';
+            }
+
+            // Debugging yellow robots
+            std::cout << "\n===== YELLOW TEAM =====\n";
+            for(int i = 0; i < lastFrame.robots_yellow_size(); i++) {
+                QString robotDebugStr = QString("Robot %1 -> x: %2 y: %3 ori: %4")
+                        .arg(lastFrame.robots_yellow(i).robot_id())
+                        .arg(lastFrame.robots_yellow(i).x())
+                        .arg(lastFrame.robots_yellow(i).y())
+                        .arg(lastFrame.robots_yellow(i).orientation());
+                std::cout << robotDebugStr.toStdString() + '\n';
+            }
+        }
+
         // Sending robot commands for robot 0, 1 and 2
         actuatorClient->sendCommand(0, 0, 0);
         actuatorClient->sendCommand(1, 0, 0);
