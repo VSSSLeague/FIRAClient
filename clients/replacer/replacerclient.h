@@ -4,8 +4,8 @@
 #include <QVector2D>
 
 #include <clients/client.h>
-#include <include/vssref_placement.pb.h>
-#include <include/vssref_common.pb.h>
+#include <proto/vssref_placement.pb.h>
+#include <proto/vssref_common.pb.h>
 
 class ReplacerClient : public Client
 {

@@ -15,6 +15,13 @@ This example contains the reception of messages from the automatic Referee and t
  * Qt OpenGL
  * Google protocol buffers (used protoc v3.6.1)
  
+## Clonning
+
+```shell
+git clone --recurse-submodules https://github.com/VSSSLeague/FIRAClient.git
+git submodule update --init
+```
+
 ## Compilation
 Create an folder named `build`, open it and run the command `qmake ..`  
 So, after this, run the command `make` and if everything goes ok, the binary will be at the folder `bin` (at the main folder).  

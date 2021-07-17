@@ -2,7 +2,7 @@
 #define REFEREECLIENT_H
 
 #include <clients/client.h>
-#include <include/vssref_command.pb.h>
+#include <proto/vssref_command.pb.h>
 
 class RefereeClient : public Client
 {

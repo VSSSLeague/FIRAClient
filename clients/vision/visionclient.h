@@ -2,7 +2,7 @@
 #define VISIONCLIENT_H
 
 #include <clients/client.h>
-#include <include/packet.pb.h>
+#include <proto/packet.pb.h>
 
 class VisionClient : public Client
 {

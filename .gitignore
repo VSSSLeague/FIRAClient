@@ -58,3 +58,4 @@ compile_commands.json
 # Folders
 build/
 bin/
+proto/

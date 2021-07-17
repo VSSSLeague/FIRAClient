@@ -20,7 +20,7 @@ RCC_DIR = tmp/rc
 LIBS *= -lprotobuf -lQt5Core
 
 # Compiling .proto files
-system(echo "Compiling protobuf files" && cd include/proto && protoc --cpp_out=../ *.proto && cd ../..)
+system(echo "Compiling protobuf files" && cd proto && cmake . && make)
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -32,14 +32,14 @@ SOURCES += \
         clients/referee/refereeclient.cpp \
         clients/replacer/replacerclient.cpp \
         clients/vision/visionclient.cpp \
-        include/command.pb.cc \
-        include/common.pb.cc \
-        include/packet.pb.cc \
-        include/replacement.pb.cc \
-        include/vssref_command.pb.cc \
-        include/vssref_common.pb.cc \
-        include/vssref_placement.pb.cc \
         main.cpp \
+        proto/command.pb.cc \
+        proto/common.pb.cc \
+        proto/packet.pb.cc \
+        proto/replacement.pb.cc \
+        proto/vssref_command.pb.cc \
+        proto/vssref_common.pb.cc \
+        proto/vssref_placement.pb.cc \
         utils/timer/timer.cpp
 
 # Default rules for deployment.
@@ -53,11 +53,11 @@ HEADERS += \
     clients/referee/refereeclient.h \
     clients/replacer/replacerclient.h \
     clients/vision/visionclient.h \
-    include/command.pb.h \
-    include/common.pb.h \
-    include/packet.pb.h \
-    include/replacement.pb.h \
-    include/vssref_command.pb.h \
-    include/vssref_common.pb.h \
-    include/vssref_placement.pb.h \
+    proto/command.pb.h \
+    proto/common.pb.h \
+    proto/packet.pb.h \
+    proto/replacement.pb.h \
+    proto/vssref_command.pb.h \
+    proto/vssref_common.pb.h \
+    proto/vssref_placement.pb.h \
     utils/timer/timer.h
